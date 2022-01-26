@@ -15,6 +15,7 @@ if (savedData) {
 data = savedDataParsed;
 formRef.elements.email.value = savedDataParsed.email ?? '';
 formRef.elements.message.value = savedDataParsed.message ?? '';
+console.log(data);
   
 const onInputForm = evt => {
   data = {
@@ -26,26 +27,26 @@ const onInputForm = evt => {
   localStorage.setItem(keyForStorage, dataJson);
 }
 
-const onSubmitForm = evt => {
-  evt.preventDefault();
+// const onSubmitForm = evt => {
+//   evt.preventDefault();
   
-  const {
-    elements: { email, message }
-  } = evt.currentTarget;
+//   const {
+//     elements: { email, message }
+//   } = evt.currentTarget;
   
-  if (email.value === '' || message.value === '') {
-    return;
-  }
-  const finalData = {
-    email: formRef.elements.email.value,
-    message: formRef.elements.message.value,
-  }
-    console.log(finalData);
+//   if (email.value === '' || message.value === '') {
+//     return;
+//   }
+//   const finalData = {
+//     email: formRef.elements.email.value,
+//     message: formRef.elements.message.value,
+//   }
+//     console.log(finalData);
   
-  evt.currentTarget.reset();
-  localStorage.removeItem(keyForStorage);
-  data = {};
-}
+//   evt.currentTarget.reset();
+//   localStorage.removeItem(keyForStorage);
+//   data = {};
+// }
 
 formRef.addEventListener('input', throttle(onInputForm, 500));
-formRef.addEventListener('submit', onSubmitForm);
+// formRef.addEventListener('submit', onSubmitForm);
