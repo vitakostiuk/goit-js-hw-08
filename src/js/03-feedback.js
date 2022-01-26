@@ -5,14 +5,15 @@ const keyForStorage = 'feedback-form-state';
 const formRef = document.querySelector('.feedback-form');
 
 let data = {};
+let savedDataParsed = {};
 
-// const savedData = localStorage.getItem(keyForStorage);
-// if (savedData) {
-//     const savedDataParsed = JSON.parse(savedData);
-//     data = savedDataParsed;
-//     formRef.elements.email.value = savedDataParsed.email ?? '';
-//     formRef.elements.message.value = savedDataParsed.message ?? '';
-// }
+const savedData = localStorage.getItem(keyForStorage);
+if (savedData) {
+    savedDataParsed = JSON.parse(savedData);
+    data = savedDataParsed;
+    formRef.elements.email.value = savedDataParsed.email ?? '';
+    formRef.elements.message.value = savedDataParsed.message ?? '';
+}
 
 const onInputForm = evt => {
   data = {
