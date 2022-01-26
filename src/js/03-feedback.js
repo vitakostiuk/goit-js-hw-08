@@ -1,5 +1,5 @@
 
-import throttle from 'lodash/throttle';
+const _ = require('lodash');
 
 const keyForStorage = 'feedback-form-state';
 
@@ -54,5 +54,5 @@ const onInputForm = evt => {
 //   data = {};
 // }
 
-formRef.addEventListener('input', throttle(onInputForm, 500));
+formRef.addEventListener('input', _.throttle(onInputForm, 500));
 // formRef.addEventListener('submit', onSubmitForm);
