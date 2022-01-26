@@ -20,34 +20,26 @@ const savedInput = () => {
 }
 savedInput();
 
+const onSubmitForm = evt => {
+  evt.preventDefault();
+  
+  const {
+    elements: { email, message }
+  } = evt.currentTarget;
+  
+  if (email.value === '' || message.value === '') {
+    return;
+  }
+  const finalData = {
+    email: formRef.elements.email.value,
+    message: formRef.elements.message.value,
+  }
+    console.log(finalData);
+  
+  evt.currentTarget.reset();
+  localStorage.removeItem(keyForStorage);
+  data = {};
+}
+
 formRef.addEventListener('input', onInputForm);
-
-
-
-
-  
-
-
-// const onSubmitForm = evt => {
-//   evt.preventDefault();
-  
-//   const {
-//     elements: { email, message }
-//   } = evt.currentTarget;
-  
-//   if (email.value === '' || message.value === '') {
-//     return;
-//   }
-//   const finalData = {
-//     email: formRef.elements.email.value,
-//     message: formRef.elements.message.value,
-//   }
-//     console.log(finalData);
-  
-//   evt.currentTarget.reset();
-//   localStorage.removeItem(keyForStorage);
-//   data = {};
-// }
-
-
-// formRef.addEventListener('submit', onSubmitForm);
+formRef.addEventListener('submit', onSubmitForm);
