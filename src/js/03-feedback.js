@@ -33,7 +33,7 @@ const onSubmitForm = evt => {
   
   if (email.value === '' || message.value === '') {
     return;
-  } 
+  }
   const finalData = {
     email: formRef.elements.email.value,
     message: formRef.elements.message.value,
