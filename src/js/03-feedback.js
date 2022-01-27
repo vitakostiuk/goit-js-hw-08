@@ -17,10 +17,10 @@ const savedData = localStorage.getItem(keyForStorage);
 const dataParsed = JSON.parse(savedData);
 
 const savedInput = () => {
-  // formRef.elements.email.value = dataParsed !== null ? dataParsed.email : '';
-  // formRef.elements.message.value = dataParsed !== null ? dataParsed.message : '';
-  formRef.elements.email.value = dataParsed.email ?? '';
-  formRef.elements.message.value = dataParsed.message ?? '';
+  formRef.elements.email.value = dataParsed !== null ? dataParsed.email : '';
+  formRef.elements.message.value = dataParsed !== null ? dataParsed.message : '';
+  // formRef.elements.email.value = dataParsed.email ?? '';
+  // formRef.elements.message.value = dataParsed.message ?? '';
 }
 savedInput();
 
